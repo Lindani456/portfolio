@@ -46,15 +46,29 @@
                         this boundless world, the adventure never ends, and the journey is the destination.
                     </p>
                     <div class="tab-titles">
-                        <p class="tab-links active-link">Skills</p>
-                        <p class="tab-links">Experience</p>
-                        <p class="tab-links">Education</p>
+                        <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
+                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                        <p class="tab-links" onclick="opentab('education')">Education</p>
                     </div>
-                    <div class="tab-contents">
+                    <div class="tab-contents active-tab" id="skills">
                         <ul>
-                            <li><span>UI/UX<br>Designing Web/App interfaces</span></li>
-                            <li><span>Web Development<br>Web App Development</span></li>
-                            <li><span>Application Development<br>Building Android/iOS Apps</span></li>
+                            <li><span>UI/UX</span><br>Designing Web/App interfaces</li>
+                            <li><span>Web Development</span><br>Web App Development</li>
+                            <li><span>Application Development</span><br>Building Android/iOS Apps</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="experience">
+                        <ul>
+                            <li><span>February 2023 - current</span><br>Software Development @ MUT</li>
+                            <li><span>Sep 2022 - Dec 2022</span><br>Web Development @ Invotech</li>
+                            <li><span>2020 - 2022</span><br>Side projects</li>
+                        </ul>
+                    </div>
+                    <div class="tab-contents" id="education">
+                        <ul>
+                            <li><span>2020 - 2022</span><br>Mangoduthu Uni of Tech</li>
+                            <li><span>2015 - 2019</span><br>Zizamele JS School</li>
+                            <li><span>2007 - 2014</span><br>Empembeni Primary School</li>
                         </ul>
                     </div>
                 </div>
@@ -195,5 +209,23 @@
             .catch(error => console.error('Error!', error.message))
         })
       </script>
+
+
+
+<script>
+    var tablinks = document.getElementsByClassName("tab-links");
+    var tabcontents = document.getElementsByClassName("tab-contents");
+
+    function opentab(tabname){
+        for(tablink of tablinks){
+            tablink.classList.remove("active-link");
+        }
+        for(tabcontent of tabcontents){
+            tabcontent.classList.remove("active-tab");
+        }
+        event.currentTarget.classList.add("active-link");
+        document.getElementById(tabname).classList.add("active-tab");
+    }
+</script>
 </body>
-</html>
+</html> 
